@@ -1,0 +1,72 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table titles {
+  title_id varchar [primary key]
+  title varchar
+  type ENUM('SHOW', 'MOVIE')
+  description varchar
+  release_year integer
+  age_certification varchar
+  runtime integer
+  seasons integer
+}
+
+Table title_genres {
+  title_id varchar [primary key]
+  genre_id integer [primary key]
+}
+
+Table genres {
+  genre_id integer  [primary key] 
+  name varchar
+}
+
+Table person {
+  person_id varchar  [primary key]
+  name varchar
+}
+
+Table title_credits {
+  person_id varchar  [primary key]
+  title_id varchar
+  character_name varchar
+  role ENUM('ACTOR', 'DIRECTOR')
+}
+
+
+Table users {
+  user_id integer  [primary key]
+  email varchar
+  name varchar
+}
+
+Table watchlists {
+  watch_id integer [primary key]
+  user_id integer  
+  title_id varchar
+  viewed_at date
+}
+
+Table ratings {
+  user_id integer  [primary key]
+  title_id integer  [primary key]
+  does_recommend boolean
+}
+
+
+Ref: "title_genres"."title_id" > "titles"."title_id"
+
+Ref: "title_genres"."genre_id" > "genres"."genre_id"
+
+Ref: "person"."person_id" < "title_credits"."person_id"
+
+Ref: "titles"."title_id" < "title_credits"."title_id"
+
+Ref: "titles"."title_id" < "watchlists"."title_id"
+
+Ref: "users"."user_id" < "watchlists"."user_id"
+
+Ref: "users"."user_id" < "ratings"."user_id"
+
+Ref: "titles"."title_id" < "ratings"."title_id"
