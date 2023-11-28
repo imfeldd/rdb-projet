@@ -4,7 +4,7 @@
 Streamify est une application qui modélise une base de données qui contient l’ensemble de films et séries présents dans Netflix. Le but est de permettre aux utilisateurs de Streamify d’avoir à leur disposition une quantité de films qui leur convient et d’arriver à gérer tout ça de la façon correcte. 
 
 ### Quelques métriques
-Streamify gère une base de données d’environ 5000 films et séries (avec n C ℕ). Les données sur ces films incluent le titre, le directeur, les acteurs principaux, le pays de provenance et la durée.
+Streamify gère une base de données d’environ 5000 films et séries. Les données sur ces films incluent le titre, le directeur, les acteurs principaux, le pays de provenance et la durée.
 Nous gérons également une trentaine d’utilisateurs, les données de leurs profils ainsi que les films qu’ils ont vu sur notre plateforme afin de pouvoir affiner nos recommandations.
 
 ### Familiarité avec la situation
