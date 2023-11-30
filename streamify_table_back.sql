@@ -1,7 +1,10 @@
+CREATE TYPE title_type AS ENUM ('show', 'movie');
+CREATE TYPE credit_role AS ENUM('actor', 'director');
+
 CREATE TABLE "titles" (
   "title_id" varchar PRIMARY KEY,
   "title" varchar,
-  "type" ENUM,
+  "type" title_type,
   "description" varchar,
   "release_year" integer,
   "age_certification" varchar,
@@ -29,7 +32,7 @@ CREATE TABLE "title_credits" (
   "person_id" varchar PRIMARY KEY,
   "title_id" varchar,
   "character_name" varchar,
-  "role" ENUM
+  "role" credit_role
 );
 
 CREATE TABLE "users" (
@@ -47,7 +50,7 @@ CREATE TABLE "watchlists" (
 
 CREATE TABLE "ratings" (
   "user_id" integer,
-  "title_id" integer,
+  "title_id" varchar,
   "does_recommend" boolean,
   PRIMARY KEY ("user_id", "title_id")
 );
