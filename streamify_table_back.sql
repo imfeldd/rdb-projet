@@ -1,8 +1,11 @@
+DROP TYPE IF EXISTS title_type CASCADE;
 CREATE TYPE title_type AS ENUM ('show', 'movie');
+DROP TYPE IF EXISTS credit_role CASCADE;
 CREATE TYPE credit_role AS ENUM('actor', 'director');
 
+DROP TABLE IF EXISTS "titles" CASCADE;
 CREATE TABLE "titles" (
-  "title_id" varchar PRIMARY KEY,
+  "title_id" serial PRIMARY KEY,
   "title" varchar,
   "type" title_type,
   "description" varchar,
@@ -12,45 +15,53 @@ CREATE TABLE "titles" (
   "seasons" integer
 );
 
+DROP TABLE IF EXISTS "title_genres" CASCADE;
 CREATE TABLE "title_genres" (
-  "title_id" varchar,
+  "title_id" integer,
   "genre_id" integer,
   PRIMARY KEY ("title_id", "genre_id")
 );
 
+DROP TABLE IF EXISTS "genres" CASCADE;
 CREATE TABLE "genres" (
-  "genre_id" integer PRIMARY KEY,
+  "genre_id" serial PRIMARY KEY,
   "name" varchar
 );
 
+DROP TABLE IF EXISTS "person" CASCADE;
 CREATE TABLE "person" (
-  "person_id" varchar PRIMARY KEY,
+  "person_id" serial PRIMARY KEY,
   "name" varchar
 );
 
+DROP TABLE IF EXISTS "title_credits" CASCADE;
 CREATE TABLE "title_credits" (
-  "person_id" varchar PRIMARY KEY,
-  "title_id" varchar,
+  "person_id" integer,
+  "title_id" integer,
   "character_name" varchar,
-  "role" credit_role
+  "role" credit_role,
+  PRIMARY KEY ("person_id", "title_id")
 );
 
+DROP TABLE IF EXISTS "users" CASCADE;
 CREATE TABLE "users" (
-  "user_id" integer PRIMARY KEY,
+  "user_id" serial PRIMARY KEY,
   "email" varchar,
   "name" varchar
 );
 
+DROP TABLE IF EXISTS "watchlists" CASCADE;
 CREATE TABLE "watchlists" (
-  "watch_id" integer PRIMARY KEY,
+  "watch_id" serial PRIMARY KEY,
   "user_id" integer,
-  "title_id" varchar,
+  "title_id" int,
   "viewed_at" date
 );
 
+DROP TABLE IF EXISTS "ratings" CASCADE;
 CREATE TABLE "ratings" (
   "user_id" integer,
-  "title_id" varchar,
+  "title_id" integer,
   "does_recommend" boolean,
   PRIMARY KEY ("user_id", "title_id")
 );
