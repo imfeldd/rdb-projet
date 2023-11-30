@@ -27,3 +27,13 @@ Pour la génération des utilisateurs, on va créer des personnes inventées. Pa
 
 ## Schema
 ![](schema.png)
+
+## Data seeding
+
+### Import titles 
+First, copy both csv files to your docker instance.
+\
+``docker cp data/titles.csv postgres:titles.csv``\
+``docker cp data/credits.csv postgres:credits.csv``
+
+Then you can run `load_titles_data.sql` however you like.
