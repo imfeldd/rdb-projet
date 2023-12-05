@@ -66,18 +66,18 @@ CREATE TABLE "ratings" (
   PRIMARY KEY ("user_id", "title_id")
 );
 
-ALTER TABLE "title_genres" ADD FOREIGN KEY ("title_id") REFERENCES "titles" ("title_id");
+ALTER TABLE "title_genres" ADD CONSTRAINT tg_doit_avoir_t FOREIGN KEY ("title_id") REFERENCES "titles" ("title_id");
 
-ALTER TABLE "title_genres" ADD FOREIGN KEY ("genre_id") REFERENCES "genres" ("genre_id");
+ALTER TABLE "title_genres" ADD CONSTRAINT tg_doit_avoir_g FOREIGN KEY ("genre_id") REFERENCES "genres" ("genre_id");
 
-ALTER TABLE "title_credits" ADD FOREIGN KEY ("person_id") REFERENCES "person" ("person_id");
+ALTER TABLE "title_credits" ADD CONSTRAINT tc_doit_avoir_pid FOREIGN KEY ("person_id") REFERENCES "person" ("person_id");
 
-ALTER TABLE "title_credits" ADD FOREIGN KEY ("title_id") REFERENCES "titles" ("title_id");
+ALTER TABLE "title_credits" ADD CONSTRAINT tc_doit_avoir_tid FOREIGN KEY ("title_id") REFERENCES "titles" ("title_id");
 
-ALTER TABLE "watchlists" ADD FOREIGN KEY ("title_id") REFERENCES "titles" ("title_id");
+ALTER TABLE "watchlists" ADD CONSTRAINT w_doit_avoir_tid FOREIGN KEY ("title_id") REFERENCES "titles" ("title_id");
 
-ALTER TABLE "watchlists" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("user_id");
+ALTER TABLE "watchlists" ADD CONSTRAINT w_doit_avoir_uid FOREIGN KEY ("user_id") REFERENCES "users" ("user_id");
 
-ALTER TABLE "ratings" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("user_id");
+ALTER TABLE "ratings" ADD CONSTRAINT r_doit_avoir_uid FOREIGN KEY ("user_id") REFERENCES "users" ("user_id");
 
-ALTER TABLE "ratings" ADD FOREIGN KEY ("title_id") REFERENCES "titles" ("title_id");
+ALTER TABLE "ratings" ADD CONSTRAINT r_doit_avoir_tid FOREIGN KEY ("title_id") REFERENCES "titles" ("title_id");
