@@ -36,11 +36,11 @@ CREATE TABLE "person" (
 
 DROP TABLE IF EXISTS "title_credits" CASCADE;
 CREATE TABLE "title_credits" (
+  "credit_id" serial,
   "person_id" integer,
   "title_id" integer,
   "character_name" varchar,
-  "role" credit_role,
-  PRIMARY KEY ("person_id", "title_id")
+  "role" credit_role
 );
 
 DROP TABLE IF EXISTS "users" CASCADE;
@@ -81,3 +81,5 @@ ALTER TABLE "watchlists" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("user_i
 ALTER TABLE "ratings" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("user_id");
 
 ALTER TABLE "ratings" ADD FOREIGN KEY ("title_id") REFERENCES "titles" ("title_id");
+
+
