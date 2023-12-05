@@ -2,7 +2,7 @@
 import random
 
 f = open("ratingsList.txt", "a")
-for i in range(0,100,1):
+for i in range(1,100,1):
     random.seed()
     nbrReview = random.randrange(8) + 3
     for j in range(0,nbrReview,1):
