@@ -32,12 +32,6 @@ CREATE TABLE temp_titles(
   tmdb_score varchar
 );
 
-DROP TABLE IF EXISTS temp_title_genres;
-CREATE TABLE temp_title_genres(
-  genre_name varchar,
-  title_id int
- );
-
 COPY temp_titles(id,title,type,description,release_year,age_certification,runtime,genres,production_countries,seasons,imdb_id,imdb_score,imdb_votes,tmdb_popularity,tmdb_score)
 FROM '/titles.csv'
 DELIMITER ','
