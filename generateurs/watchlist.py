@@ -25,5 +25,5 @@ for index, date in enumerate(random_dates):
 print(len(fin))
 for i in range(1,1000,1):
 
-    f.write("INSERT INTO watchlists (watch_id, user_id, title_id, viewed_at) VALUES ({}, {}, {}, '{}');\n".format(i, random.randint(1,100), random.randint(1,5850), fin[i]))
+    f.write("INSERT INTO watchlists (watch_id, user_id, title_id, viewed_at) VALUES ({}, {}, {}, '{}');\n".format(i, random.randint(1,99), random.randint(1,5850), fin[i]))
 f.close()
