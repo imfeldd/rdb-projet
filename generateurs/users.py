@@ -3,7 +3,7 @@ from faker import Faker
 fake = Faker()
 
 f = open("usersList.txt", "a")
-for i in range(0,100,1):
+for i in range(1,100,1):
     newName = fake.name()
     prenom = newName.split(" ")[0]
     nom = newName.split(" ")[1]
