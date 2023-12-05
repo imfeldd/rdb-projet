@@ -2,9 +2,9 @@
 // Docs: https://dbml.dbdiagram.io/docs
 
 Table titles {
-  title_id varchar [primary key]
+  title_id serial [primary key]
   title varchar
-  type ENUM('SHOW', 'MOVIE')
+  type title_type
   description varchar
   release_year integer
   age_certification varchar
@@ -13,7 +13,7 @@ Table titles {
 }
 
 Table title_genres {
-  title_id varchar [primary key]
+  title_id integer [primary key]
   genre_id integer [primary key]
 }
 
@@ -23,17 +23,17 @@ Table genres {
 }
 
 Table person {
-  person_id varchar  [primary key]
+  person_id serial [primary key]
   name varchar
 }
 
 Table title_credits {
-  person_id varchar  [primary key]
-  title_id varchar
+  credit_id serial [primary key]
+  person_id integer
+  title_id integer
   character_name varchar
-  role ENUM('ACTOR', 'DIRECTOR')
+  role credit_role
 }
-
 
 Table users {
   user_id integer  [primary key]
