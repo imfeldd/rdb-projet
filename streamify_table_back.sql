@@ -80,10 +80,5 @@ ALTER TABLE "watchlists" ADD CONSTRAINT w_doit_avoir_uid FOREIGN KEY ("user_id")
 
 ALTER TABLE "ratings" ADD CONSTRAINT r_doit_avoir_uid FOREIGN KEY ("user_id") REFERENCES "users" ("user_id");
 
-<<<<<<< HEAD
-ALTER TABLE "ratings" ADD FOREIGN KEY ("title_id") REFERENCES "titles" ("title_id");
-
-
-=======
 ALTER TABLE "ratings" ADD CONSTRAINT r_doit_avoir_tid FOREIGN KEY ("title_id") REFERENCES "titles" ("title_id");
->>>>>>> c7ef1e346d33e54f07f1075bc1e863acfec4de43
+
