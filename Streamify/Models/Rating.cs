@@ -10,7 +10,7 @@ public class Rating {
     [Column("user_id")]
     public int UserId { get; set; }
 
-    [Key]
+    //[Key]
     [Column("title_id")]
     public int TitleId { get; set; }
 

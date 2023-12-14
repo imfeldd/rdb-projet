@@ -2,9 +2,20 @@
 namespace Streamify;
 
 public class Context : DbContext {
+<<<<<<< Updated upstream
     public DbSet<Title> Titles { get; set; }
     public DbSet<Genre> Genres { get; set; }
     public DbSet<Person> Persons { get; set; }
+=======
+    public DbSet<Genres> Genres { get; set; }
+    public DbSet<Person> Person { get; set; }
+    public DbSet<Ratings> Ratings { get; set; }
+    public DbSet<TitleCredits> TitleCredits { get; set; }
+    public DbSet<TitleGenres> TitleGenres { get; set; }
+    public DbSet<Titles> Titles { get; set; }
+    public DbSet<Users> Users { get; set; }
+    public DbSet<Watchlists> Watchlists { get; set; }
+>>>>>>> Stashed changes
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
         optionsBuilder.UseNpgsql("Host=localhost:5432;Database=netflix;Username=postgres;Password=pass");
