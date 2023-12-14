@@ -1,6 +1,4 @@
-#INSERT INTO users (user_id, email, name) VALUES (1, 'random@gmail.com', 'randomName');
-import random
-import datetime
+
 import random
 from datetime import timedelta, datetime
 f = open("watchlist.txt", "a")
