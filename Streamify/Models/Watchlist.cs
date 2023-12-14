@@ -5,18 +5,18 @@ namespace Streamify;
 
 
 [Table("watchlists")]
-public class Watchlists {
+public class Watchlist {
 
     [Key]
     [Column("watch_id")]
-    public Int WatchId { get; set; }
+    public int WatchId { get; set; }
 
     [Column("user_id")]
-    public Int UserId { get; set; }
+    public int UserId { get; set; }
 
     [Column("title_id")]
-    public Int TitleId { get; set; }
+    public int TitleId { get; set; }
 
     [Column("viewed_at")]
-    public String ViewedAt { get; set; }
+    public string ViewedAt { get; set; }
 }

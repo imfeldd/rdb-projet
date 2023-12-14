@@ -5,15 +5,15 @@ namespace Streamify;
 
 
 [Table("ratings")]
-public class Ratings {
+public class Rating {
     [Key]
     [Column("user_id")]
-    public Int UserId { get; set; }
+    public int UserId { get; set; }
 
     [Key]
     [Column("title_id")]
-    public Int TitleId { get; set; }
+    public int TitleId { get; set; }
 
     [Column("does_recommend")]
-    public Boolean DoesRecommend { get; set; }
+    public bool DoesRecommend { get; set; }
 }

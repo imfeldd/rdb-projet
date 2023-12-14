@@ -5,14 +5,14 @@ namespace Streamify;
 
 
 [Table("users")]
-public class Users {
+public class User {
     [Key]
     [Column("user_id")]
-    public Int UserId { get; set; }
+    public int UserId { get; set; }
 
     [Column("email")]
-    public String Email { get; set; }
+    public string Email { get; set; }
 
     [Column("name")]
-    public String Name { get; set; }
+    public string Name { get; set; }
 }

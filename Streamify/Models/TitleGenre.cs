@@ -4,13 +4,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Streamify;
 
 
-[Table("genres")]
-public class Genres {
+[Table("title_genres")]
+public class TitleGenre {
+    [Column("title_id")]
+    public int TitleId { get; set; }
 
-    [Key]
     [Column("genre_id")]
-    public Int GenreId { get; set; }
-
-    [Column("name")]
-    public String Name { get; set; }
+    public int GenreId { get; set; }
 }
