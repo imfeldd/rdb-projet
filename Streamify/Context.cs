@@ -18,5 +18,11 @@ public class Context : DbContext {
                 r => r.HasOne<Genre>().WithMany(e => e.TitleGenres),
                 l => l.HasOne<Title>().WithMany(e => e.TitleGenres)
             );
+
+        modelBuilder.Entity<TitleCredit>()
+            .Property(e => e.Role)
+            .HasConversion(
+                v => v.ToString(),
+                v => (RoleType)Enum.Parse(typeof(RoleType), v));
     }
 }

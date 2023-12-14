@@ -28,4 +28,7 @@ public class TitleCredit {
 
     [Column("character_name")]
     public string CharacterName { get; set; }
+
+    [Column("role")]
+    public RoleType Role { get; set; }
 }
