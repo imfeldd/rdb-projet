@@ -4,11 +4,22 @@ Console.WriteLine("SALU MOND!");
 
 var context = new Context();
 
-var title = context.Titles.Include(title => title.Genres).First(x => x.TitleId == 1);
+var title = context.Titles.
+    Include(title => title.Genres).
+    First(x => x.TitleId == 1);
 Console.WriteLine(title.TitleName);
+
 foreach (var genre in title.Genres) {
     Console.WriteLine(genre.Name);
 }
+
+foreach (var _title in context.Titles.Include(x => x.Credits).ThenInclude(x => x.Person)) {
+    foreach (var credit in _title.Credits) {
+        Console.WriteLine(credit.Person.Name, credit.Title);
+    }
+}
+
+
 
 var transaction = context.Database.BeginTransaction();
 

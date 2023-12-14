@@ -13,4 +13,6 @@ public class Person {
 
     [Column("name")]
     public String Name { get; set; }
+
+    public virtual List<TitleCredit> Credits { get; set; } = new();
 }

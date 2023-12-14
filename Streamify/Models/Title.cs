@@ -24,6 +24,8 @@ public class Title {
 
     public List<TitleGenre> TitleGenres { get; } = new();
 
+    public virtual List<TitleCredit> Credits { get; set; } = new();
+
     [Column("description")]
     public string? Description { get; set; }
 

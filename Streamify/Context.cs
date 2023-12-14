@@ -4,6 +4,7 @@ namespace Streamify;
 public class Context : DbContext {
     public DbSet<Title> Titles { get; set; }
     public DbSet<Genre> Genres { get; set; }
+    public DbSet<Person> Persons { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
         optionsBuilder.UseNpgsql("Host=localhost:5432;Database=netflix;Username=postgres;Password=pass");
