@@ -34,16 +34,6 @@ var transaction = context.Database.BeginTransaction();
 //transaction.Commit();
 
 
-<<<<<<< Updated upstream
-/*
-foreach (var title in context.Titles.Where(t => t.Name.Length > 20)) {
-    Console.WriteLine(title.Name);
-}
-
-
-context.Remove(newTitle);
-*/
-=======
 
 foreach (var user in context.Users.Where(u => u.Name.Length > 6)) {
     Console.WriteLine(user.Name);
@@ -51,6 +41,5 @@ foreach (var user in context.Users.Where(u => u.Name.Length > 6)) {
 
 
 //context.Remove(newTitle);
->>>>>>> Stashed changes
 context.SaveChanges();
 
