@@ -1,7 +1,6 @@
 ﻿using System.Security.Principal;
 using Microsoft.EntityFrameworkCore;
 using Streamify;
-Console.WriteLine("SALU MOND!");
 
 var context = new Context();
 
@@ -15,20 +14,19 @@ Console.WriteLine(title.TitleName);
 Console.WriteLine(title.Credits[0].Person.Name);
 
 
-var res = from e1 in context.Titles
-    join e2 in context.Titles
-    on e1.TitleId equals e2.TitleId
+var bestMovie =
+    from e1 in context.Titles
+    join e2 in context.Ratings
+        on e1.TitleId equals e2.TitleId
+    orderby e1.Ratings.Count descending
     select new {
-                title_id = e1.TitleId,
-                title_name = e1.TitleName,
-                good_ratings_n = e2.Ratings.Count
-            }; 
+        title_id = e1.TitleId,
+        title_name = e1.TitleName,
+        good_ratings_n = e1.Ratings.Count
+    };
 
-
-var resSorted = res.OrderByDescending(x => x.good_ratings_n);
 Console.WriteLine("Meilleurs films de la plateforme:");
-Console.WriteLine($"{resSorted.First().title_name}");
-
+Console.WriteLine($"{bestMovie.First().title_name}");
 
 
 //liste les genres du film

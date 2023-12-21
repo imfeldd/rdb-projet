@@ -24,6 +24,7 @@ public class Context : DbContext {
                 l => l.HasOne<Title>().WithMany(e => e.TitleGenres)
             );
 
+
         // Mapping des enum Postgres en enum C#
         modelBuilder.Entity<TitleCredit>()
             .Property(e => e.Role)
