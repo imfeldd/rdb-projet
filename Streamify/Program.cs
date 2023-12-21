@@ -59,8 +59,6 @@ foreach (var credit in title.Credits) {
     Console.WriteLine($"{credit.PersonId}: \nNom : {credit.Person.Name}\nJob : {credit.Role}\nNoms de personnages : {credit.CharacterName}\n");
 }
 
-//recommandation
-Console.WriteLine("\nFilms les plus appréciés:");
 
 Dictionary<int, int> openWith = new Dictionary<int, int>();
 
