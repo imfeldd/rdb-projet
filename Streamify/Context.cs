@@ -6,6 +6,8 @@ public class Context : DbContext {
     public DbSet<Title> Titles { get; set; }
     public DbSet<Genre> Genres { get; set; }
     public DbSet<Person> Persons { get; set; }
+    public DbSet<Rating> Ratings { get; set; }
+    public DbSet<User> Users { get; set; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
@@ -13,6 +15,7 @@ public class Context : DbContext {
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
+        // Table de liaison entre `Genres` et `Titles`
         modelBuilder.Entity<Title>()
             .HasMany(e => e.Genres)
             .WithMany(e => e.Titles)
@@ -21,10 +24,11 @@ public class Context : DbContext {
                 l => l.HasOne<Title>().WithMany(e => e.TitleGenres)
             );
 
+        // Mapping des enum Postgres en enum C#
         modelBuilder.Entity<TitleCredit>()
             .Property(e => e.Role)
             .HasConversion(
                 v => v.ToString(),
-                v => (RoleType)Enum.Parse(typeof(RoleType), v));
+                v => Enum.Parse<RoleType>(v));
     }
 }
